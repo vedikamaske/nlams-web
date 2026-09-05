@@ -1,0 +1,560 @@
+/* ============================================================
+   NLAMS — National Land Acquisition & Management System
+   Global Stylesheet
+
+   Build base: shadcn/Nova (base-nova) + Tailwind CSS v4
+   Design system: UX4G 3.0 principles, WCAG 2.1 AA
+   ============================================================ */
+
+/* ── 1. TAILWIND IMPORTS ──────────────────────────────────── */
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/* ── 2. CUSTOM VARIANT ────────────────────────────────────── */
+@custom-variant dark (&:is(.dark *));
+
+/* ── 3. TAILWIND THEME MAPPING ────────────────────────────── */
+/*
+   Maps the NLAMS CSS design tokens into Tailwind's color/font
+   system so utility classes (bg-primary, text-foreground, etc.)
+   reflect the NLAMS palette automatically.
+
+   The --font-sans variable is wired to the Noto Sans CSS variable
+   injected by next/font/google in layout.tsx.
+   The --font-mono variable remains Geist Mono for code/data.
+*/
+@theme inline {
+  /* Fonts — resolved from next/font CSS variables on <html> */
+  --font-sans: var(--font-noto-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-heading: var(--font-noto-sans-display), var(--font-noto-sans), system-ui, sans-serif;
+  --font-devanagari: var(--font-noto-sans-devanagari), var(--font-noto-sans), system-ui, sans-serif;
+
+  /* shadcn semantic → Tailwind color mapping */
+  --color-background:              var(--background);
+  --color-foreground:              var(--foreground);
+  --color-card:                    var(--card);
+  --color-card-foreground:         var(--card-foreground);
+  --color-popover:                 var(--popover);
+  --color-popover-foreground:      var(--popover-foreground);
+  --color-primary:                 var(--primary);
+  --color-primary-foreground:      var(--primary-foreground);
+  --color-secondary:               var(--secondary);
+  --color-secondary-foreground:    var(--secondary-foreground);
+  --color-muted:                   var(--muted);
+  --color-muted-foreground:        var(--muted-foreground);
+  --color-accent:                  var(--accent);
+  --color-accent-foreground:       var(--accent-foreground);
+  --color-destructive:             var(--destructive);
+  --color-border:                  var(--border);
+  --color-input:                   var(--input);
+  --color-ring:                    var(--ring);
+
+  /* Sidebar tokens */
+  --color-sidebar:                        var(--sidebar);
+  --color-sidebar-foreground:             var(--sidebar-foreground);
+  --color-sidebar-primary:                var(--sidebar-primary);
+  --color-sidebar-primary-foreground:     var(--sidebar-primary-foreground);
+  --color-sidebar-accent:                 var(--sidebar-accent);
+  --color-sidebar-accent-foreground:      var(--sidebar-accent-foreground);
+  --color-sidebar-border:                 var(--sidebar-border);
+  --color-sidebar-ring:                   var(--sidebar-ring);
+
+  /* Chart tokens (intentionally not NLAMS brand palette;
+     chart colors are managed separately to preserve accessibility
+     in data visualization contexts) */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Border radius scale — restrained, government-enterprise style */
+  --radius-sm:  calc(var(--radius) * 0.6);   /* ~0.225rem  */
+  --radius-md:  calc(var(--radius) * 0.8);   /* ~0.3rem    */
+  --radius-lg:  var(--radius);               /* 0.375rem   */
+  --radius-xl:  calc(var(--radius) * 1.4);   /* ~0.525rem  */
+  --radius-2xl: calc(var(--radius) * 1.8);   /* ~0.675rem  */
+  --radius-3xl: calc(var(--radius) * 2.2);   /* ~0.825rem  */
+  --radius-4xl: calc(var(--radius) * 2.6);   /* ~0.975rem  */
+}
+
+/* ── 4. LIGHT MODE DESIGN TOKENS (:root) ──────────────────── */
+/*
+   NLAMS Semantic Color System
+   All values are expressed in oklch() for perceptual uniformity
+   and to stay consistent with the shadcn/Nova baseline.
+
+   oklch approximations derived from NLAMS hex values:
+     #17365D → oklch(0.285 0.095 250)   Government Navy / Primary
+     #102A46 → oklch(0.220 0.083 250)   Navy Dark
+     #EAF1F8 → oklch(0.953 0.022 241)   Navy Soft / Light
+     #F8FAFC → oklch(0.984 0.004 241)   Page Background
+     #FFFFFF → oklch(1 0 0)              Card / Surface
+     #172033 → oklch(0.223 0.033 253)   Primary Text (Foreground)
+     #475569 → oklch(0.446 0.043 243)   Secondary / Slate
+     #64748B → oklch(0.510 0.040 245)   Subtle / Muted Foreground
+     #E2E8F0 → oklch(0.918 0.012 241)   Secondary Background
+     #F1F5F9 → oklch(0.965 0.008 241)   Muted Background
+     #CBD5E1 → oklch(0.841 0.020 241)   Border
+     #B45309 → oklch(0.548 0.134  55)   Saffron (NLAMS accent)
+     #0F766E → oklch(0.502 0.105 185)   GIS / Teal
+     #166534 → oklch(0.420 0.115 152)   Success / Green
+     #A16207 → oklch(0.508 0.130  66)   Warning / Amber
+     #B42318 → oklch(0.470 0.175  28)   Danger / Red
+     #075985 → oklch(0.380 0.090 240)   Info / Blue
+*/
+:root {
+  /* ─── shadcn semantic tokens — remapped to NLAMS palette ─── */
+
+  /* Page canvas */
+  --background:          oklch(0.984 0.004 241);  /* #F8FAFC */
+  --foreground:          oklch(0.223 0.033 253);  /* #172033 */
+
+  /* Card / surface */
+  --card:                oklch(1 0 0);             /* #FFFFFF */
+  --card-foreground:     oklch(0.223 0.033 253);  /* #172033 */
+
+  /* Popover (dropdown, tooltip backgrounds) */
+  --popover:             oklch(1 0 0);             /* #FFFFFF */
+  --popover-foreground:  oklch(0.223 0.033 253);  /* #172033 */
+
+  /* Primary — Government Navy */
+  --primary:             oklch(0.285 0.095 250);  /* #17365D */
+  --primary-foreground:  oklch(1 0 0);             /* #FFFFFF */
+
+  /* Secondary — light neutral for secondary actions */
+  --secondary:           oklch(0.918 0.012 241);  /* #E2E8F0 */
+  --secondary-foreground:oklch(0.223 0.033 253);  /* #172033 */
+
+  /* Muted — backgrounds for de-emphasised sections */
+  --muted:               oklch(0.965 0.008 241);  /* #F1F5F9 */
+  --muted-foreground:    oklch(0.446 0.043 243);  /* #475569 */
+
+  /* Accent — accessible interactive/hover background state
+     NOTE: saffron is NOT mapped here; see --nlams-saffron below */
+  --accent:              oklch(0.953 0.022 241);  /* #EAF1F8 */
+  --accent-foreground:   oklch(0.285 0.095 250);  /* #17365D */
+
+  /* Destructive — danger/error actions */
+  --destructive:         oklch(0.470 0.175 28);   /* #B42318 */
+  --destructive-foreground: oklch(1 0 0);          /* #FFFFFF */
+
+  /* Borders and inputs */
+  --border:              oklch(0.841 0.020 241);  /* #CBD5E1 */
+  --input:               oklch(0.841 0.020 241);  /* #CBD5E1 */
+
+  /* Focus ring — navy for strong visibility on light bg */
+  --ring:                oklch(0.285 0.095 250);  /* #17365D */
+
+  /* Border radius base — moderate, government-enterprise */
+  --radius: 0.375rem;
+
+  /* ─── Sidebar ─────────────────────────────────────────────
+     Sidebar uses a slightly elevated navy surface with
+     high-contrast foreground for navigation readability. */
+  --sidebar:                     oklch(0.253 0.088 250);  /* slightly lighter navy */
+  --sidebar-foreground:          oklch(0.930 0.012 241);  /* near-white on dark navy */
+  --sidebar-primary:             oklch(1 0 0);             /* white for active items */
+  --sidebar-primary-foreground:  oklch(0.285 0.095 250);  /* navy */
+  --sidebar-accent:              oklch(0.320 0.098 250);  /* hover state on sidebar */
+  --sidebar-accent-foreground:   oklch(1 0 0);
+  --sidebar-border:              oklch(0.340 0.085 250);  /* subtle separator */
+  --sidebar-ring:                oklch(1 0 0);
+
+  /* ─── Chart tokens ────────────────────────────────────────
+     Chart colors are intentionally distinct from the brand
+     palette to avoid confusion between UI state and data.
+     These will be refined as the GIS/analytics layer matures. */
+  --chart-1: oklch(0.502 0.105 185);  /* teal   */
+  --chart-2: oklch(0.420 0.115 152);  /* green  */
+  --chart-3: oklch(0.548 0.134  55);  /* amber  */
+  --chart-4: oklch(0.380 0.090 240);  /* blue   */
+  --chart-5: oklch(0.470 0.175  28);  /* red    */
+
+  /* ─── NLAMS-specific semantic tokens ─────────────────────
+     Use these instead of raw hex values in components. */
+
+  /* Saffron — national identity accent; use sparingly */
+  --nlams-saffron:             oklch(0.548 0.134  55);   /* #B45309 */
+  --nlams-saffron-foreground:  oklch(0.223 0.033 253);   /* dark text on saffron WCAG AA */
+
+  /* GIS / spatial intelligence accent */
+  --nlams-gis:                 oklch(0.502 0.105 185);   /* #0F766E */
+  --nlams-gis-foreground:      oklch(1 0 0);
+
+  /* Success — Approved / Completed / Verified / Active */
+  --nlams-success:             oklch(0.420 0.115 152);   /* #166534 */
+  --nlams-success-bg:          oklch(0.935 0.040 152);   /* soft green bg */
+  --nlams-success-foreground:  oklch(0.223 0.033 253);   /* dark text for contrast */
+
+  /* Warning — Pending / At Risk / Attention Required */
+  --nlams-warning:             oklch(0.508 0.130  66);   /* #A16207 */
+  --nlams-warning-bg:          oklch(0.960 0.045  66);   /* soft amber bg */
+  --nlams-warning-foreground:  oklch(0.223 0.033 253);   /* dark text for contrast */
+
+  /* Danger — Rejected / Failed / Overdue / Critical */
+  --nlams-danger:              oklch(0.470 0.175  28);   /* #B42318 */
+  --nlams-danger-bg:           oklch(0.958 0.040  28);   /* soft red bg */
+  --nlams-danger-foreground:   oklch(1 0 0);
+
+  /* Info — Guidance / Informational */
+  --nlams-info:                oklch(0.380 0.090 240);   /* #075985 */
+  --nlams-info-bg:             oklch(0.948 0.025 240);   /* soft blue bg */
+  --nlams-info-foreground:     oklch(1 0 0);
+
+  /* Draft / Muted status */
+  --nlams-draft:               oklch(0.446 0.043 243);   /* slate */
+  --nlams-draft-bg:            oklch(0.965 0.008 241);
+  --nlams-draft-foreground:    oklch(0.223 0.033 253);
+
+  /* Primary dark/light ramp (for hover states, etc.) */
+  --nlams-primary-dark:  oklch(0.220 0.083 250);   /* #102A46 */
+  --nlams-primary-light: oklch(0.953 0.022 241);   /* #EAF1F8 */
+
+  /* Secondary / Slate */
+  --nlams-secondary:     oklch(0.446 0.043 243);   /* #475569 */
+
+  /* Subtle text */
+  --nlams-subtle:        oklch(0.510 0.040 245);   /* #64748B */
+}
+
+/* ── 5. DARK MODE DESIGN TOKENS ───────────────────────────── */
+/*
+   Light mode is the primary NLAMS experience.
+   Dark mode values are updated carefully to preserve:
+   - readable text
+   - visible borders
+   - distinguishable controls
+   - meaningful status colors
+   - visible focus indicators
+*/
+.dark {
+  /* Canvas */
+  --background:          oklch(0.145 0.015 253);
+  --foreground:          oklch(0.940 0.008 241);
+
+  /* Card / surface */
+  --card:                oklch(0.195 0.025 253);
+  --card-foreground:     oklch(0.940 0.008 241);
+
+  /* Popover */
+  --popover:             oklch(0.195 0.025 253);
+  --popover-foreground:  oklch(0.940 0.008 241);
+
+  /* Primary — use a lightened navy so it reads on dark bg */
+  --primary:             oklch(0.650 0.080 241);  /* lighter navy */
+  --primary-foreground:  oklch(0.145 0.015 253);  /* dark for contrast */
+
+  /* Secondary */
+  --secondary:           oklch(0.250 0.030 253);
+  --secondary-foreground:oklch(0.940 0.008 241);
+
+  /* Muted */
+  --muted:               oklch(0.250 0.030 253);
+  --muted-foreground:    oklch(0.620 0.030 243);
+
+  /* Accent */
+  --accent:              oklch(0.285 0.060 250);
+  --accent-foreground:   oklch(0.900 0.015 241);
+
+  /* Destructive */
+  --destructive:         oklch(0.600 0.180  28);
+  --destructive-foreground: oklch(0.940 0.008 241);
+
+  /* Borders */
+  --border:              oklch(1 0 0 / 12%);
+  --input:               oklch(1 0 0 / 15%);
+
+  /* Focus ring — brighter on dark */
+  --ring:                oklch(0.650 0.080 241);
+
+  /* Sidebar */
+  --sidebar:                     oklch(0.175 0.025 253);
+  --sidebar-foreground:          oklch(0.900 0.012 241);
+  --sidebar-primary:             oklch(0.650 0.080 241);
+  --sidebar-primary-foreground:  oklch(0.145 0.015 253);
+  --sidebar-accent:              oklch(0.250 0.040 250);
+  --sidebar-accent-foreground:   oklch(0.900 0.012 241);
+  --sidebar-border:              oklch(1 0 0 / 10%);
+  --sidebar-ring:                oklch(0.650 0.080 241);
+
+  /* Charts — slightly brightened for dark bg readability */
+  --chart-1: oklch(0.620 0.110 185);
+  --chart-2: oklch(0.540 0.120 152);
+  --chart-3: oklch(0.660 0.130  55);
+  --chart-4: oklch(0.540 0.100 240);
+  --chart-5: oklch(0.600 0.175  28);
+
+  /* NLAMS tokens — adjusted for dark backgrounds */
+  --nlams-saffron:             oklch(0.700 0.130  55);
+  --nlams-saffron-foreground:  oklch(0.145 0.015 253);
+
+  --nlams-gis:                 oklch(0.620 0.110 185);
+  --nlams-gis-foreground:      oklch(0.145 0.015 253);
+
+  --nlams-success:             oklch(0.540 0.120 152);
+  --nlams-success-bg:          oklch(0.210 0.040 152);
+  --nlams-success-foreground:  oklch(0.900 0.020 152);
+
+  --nlams-warning:             oklch(0.640 0.130  66);
+  --nlams-warning-bg:          oklch(0.220 0.040  66);
+  --nlams-warning-foreground:  oklch(0.900 0.025  66);
+
+  --nlams-danger:              oklch(0.600 0.180  28);
+  --nlams-danger-bg:           oklch(0.220 0.050  28);
+  --nlams-danger-foreground:   oklch(0.920 0.020  28);
+
+  --nlams-info:                oklch(0.540 0.100 240);
+  --nlams-info-bg:             oklch(0.200 0.040 240);
+  --nlams-info-foreground:     oklch(0.900 0.020 240);
+
+  --nlams-draft:               oklch(0.620 0.040 243);
+  --nlams-draft-bg:            oklch(0.250 0.025 253);
+  --nlams-draft-foreground:    oklch(0.900 0.012 241);
+
+  --nlams-primary-dark:  oklch(0.220 0.083 250);
+  --nlams-primary-light: oklch(0.285 0.060 250);
+  --nlams-secondary:     oklch(0.620 0.040 243);
+  --nlams-subtle:        oklch(0.560 0.035 245);
+}
+
+/* ── 6. BASE LAYER ────────────────────────────────────────── */
+@layer base {
+  /*
+   Apply sensible border/outline defaults from shadcn.
+   outline-ring/50 provides the base focus ring for all elements.
+  */
+  /*
+   Apply border-box to everything, but scope the outline-ring/50
+   only to interactive elements — not all divs — to prevent ghost
+   outline artifacts appearing on non-interactive card elements.
+  */
+  * {
+    @apply border-border;
+  }
+
+  button,
+  a,
+  input,
+  select,
+  textarea,
+  [role="button"],
+  [role="tab"],
+  [role="checkbox"],
+  [role="radio"],
+  [tabindex] {
+    @apply outline-ring/50;
+  }
+
+
+  /* ─── HTML root ──────────────────────────────────────────
+     - font-size stays at the browser default (100% / 16px).
+       Do NOT set html { font-size: <px> } below the browser
+       default — this breaks user accessibility preferences.
+     - font-sans resolves to Noto Sans via --font-noto-sans.
+  */
+  html {
+    font-size: 100%; /* preserve browser default — WCAG 2.1 AA */
+    @apply font-sans;
+    scroll-behavior: smooth;
+  }
+
+  /* ─── Body ───────────────────────────────────────────────
+     Base body typography and colours from the design tokens.
+  */
+  body {
+    @apply bg-background text-foreground;
+    font-size: 1rem;          /* 16px */
+    line-height: 1.5;
+    font-weight: 400;
+    font-feature-settings: "kern" 1, "liga" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* ─── Heading defaults ───────────────────────────────────
+     Uses Noto Sans Display when available (injected via
+     --font-noto-sans-display from next/font).
+     Keep headings proportionate for information-dense UI.
+  */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-noto-sans-display), var(--font-noto-sans), system-ui, sans-serif;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--foreground);
+  }
+
+  h1 {
+    font-size: 2rem;       /* 32px */
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  h2 {
+    font-size: 1.5rem;     /* 24px */
+    line-height: 1.3;
+    font-weight: 600;
+  }
+
+  h3 {
+    font-size: 1.25rem;    /* 20px */
+    line-height: 1.4;
+    font-weight: 600;
+  }
+
+  h4 {
+    font-size: 1.125rem;   /* 18px */
+    line-height: 1.4;
+    font-weight: 500;
+  }
+
+  h5 {
+    font-size: 1rem;       /* 16px */
+    font-weight: 500;
+  }
+
+  h6 {
+    font-size: 0.875rem;   /* 14px */
+    font-weight: 500;
+  }
+
+  /* ─── Paragraph ─────────────────────────────────────────── */
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-block-end: 0; /* reset; components control spacing */
+  }
+
+  /* ─── Small / caption text ───────────────────────────────── */
+  small {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  /* ─── Links ──────────────────────────────────────────────
+     Links are visually distinguishable via color AND underline
+     so they do not rely on color alone (WCAG 1.4.1).
+  */
+  a {
+    color: var(--primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-thickness: 1px;
+  }
+
+  a:hover {
+    color: var(--nlams-primary-dark);
+    text-decoration-thickness: 2px;
+  }
+
+  /* ─── Code / monospace ───────────────────────────────────── */
+  code, kbd, samp, pre {
+    font-family: var(--font-geist-mono), ui-monospace, monospace;
+    font-size: 0.875em;
+  }
+}
+
+/* ── 7. ACCESSIBILITY — FOCUS STATES ─────────────────────── */
+/*
+   WCAG 2.1 AA requires visible focus indicators for all
+   interactive elements. We use a 2px solid outline + 2px
+   transparent offset so the ring is visible on both light and
+   dark backgrounds.
+
+   We do NOT use `outline: none` anywhere without a replacement.
+*/
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+
+  /* Inputs and selects: ring via box-shadow so the element
+     border shape is respected */
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px var(--background),
+      0 0 0 4px var(--ring);
+  }
+
+  /* Skip-to-content link — visually hidden until focused */
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    padding: 0.5rem 1rem;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    font-weight: 600;
+    border-radius: var(--radius-lg);
+    z-index: 9999;
+    text-decoration: none;
+  }
+
+  .skip-link:focus {
+    top: 1rem;
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
+
+/* ── 8. REDUCED MOTION ────────────────────────────────────── */
+/*
+   Respects the user's OS-level "reduce motion" preference.
+   Framer Motion reads this preference natively, but we also
+   apply CSS-level overrides for transitions and animations
+   not managed by Framer Motion.
+
+   We disable decorative animations but preserve essential
+   state feedback (e.g., focus, checked state).
+*/
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── 9. MINIMAL UTILITY / GLOBAL RULES ───────────────────── */
+@layer base {
+  /* Prevent horizontal overflow from breaking layout */
+  html, body {
+    overflow-x: hidden;
+  }
+
+  /* Ensure images don't overflow their containers */
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Remove list decoration where lists are used structurally */
+  ul[role="list"],
+  ol[role="list"] {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Devanagari / Indian script language class
+     Apply to containers where Indian language content appears.
+     Components should set the appropriate `lang` attribute. */
+  :lang(hi),
+  :lang(mr),
+  :lang(ne),
+  .font-devanagari {
+    font-family: var(--font-noto-sans-devanagari), var(--font-noto-sans), system-ui, sans-serif;
+  }
+}
