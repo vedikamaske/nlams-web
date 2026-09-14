@@ -7,33 +7,33 @@ export default function GovernmentUtilityBar() {
   return (
     <div className="w-full bg-[#0B2240] text-white" style={{ minHeight: "38px" }}>
       <div
-        className="mx-auto flex items-center justify-between px-6 lg:px-10"
-        style={{ maxWidth: "1500px", height: "38px" }}
+        className="mx-auto flex items-center justify-between px-3.5 sm:px-6 lg:px-10"
+        style={{ maxWidth: "1500px", minHeight: "38px" }}
       >
         {/* LEFT — Flag + system identity */}
         <div className="flex items-center gap-0 min-w-0">
           {/* Indian Flag */}
-          <div className="relative shrink-0 mr-2" style={{ width: 22, height: 15 }}>
+          <div className="relative shrink-0 mr-2" style={{ width: 20, height: 14 }}>
             <Image
               src="/images/indian-flag.jpg"
               alt="Indian National Flag"
               fill
               className="object-cover rounded-[1px]"
-              sizes="22px"
+              sizes="20px"
             />
           </div>
 
-          <span className="text-white font-semibold text-[12.5px] whitespace-nowrap">
+          <span className="text-white font-semibold text-[11.5px] sm:text-[12.5px] whitespace-nowrap">
             SIH Prototype
           </span>
 
           {/* Divider */}
           <span
-            className="mx-2.5 inline-block h-3.5 w-px bg-white/30 shrink-0"
+            className="mx-2 sm:mx-2.5 inline-block h-3.5 w-px bg-white/30 shrink-0"
             aria-hidden="true"
           />
 
-          <span className="text-white/80 text-[12px] whitespace-nowrap hidden sm:inline">
+          <span className="text-white/80 text-[11px] sm:text-[12px] whitespace-nowrap hidden sm:inline truncate">
             National Land Acquisition &amp; Management System
           </span>
         </div>

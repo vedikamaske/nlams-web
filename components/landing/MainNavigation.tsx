@@ -21,20 +21,20 @@ export default function MainNavigation() {
   return (
     <header className="w-full bg-white border-b border-[#D8E3EE] shadow-sm">
       <div
-        className="mx-auto flex items-center justify-between px-6 lg:px-10"
-        style={{ maxWidth: "1500px", height: "90px" }}
+        className="mx-auto flex items-center justify-between px-3.5 sm:px-6 lg:px-10 h-[72px] sm:h-[84px] lg:h-[90px]"
+        style={{ maxWidth: "1500px" }}
       >
         {/* ── LEFT: Emblem + Brand ─────────────────────── */}
         <div className="flex items-center gap-0 shrink-0">
           {/* Government of India Emblem */}
-          <a href="/" aria-label="NLAMS Home" className="flex items-center gap-3 no-underline" style={{ textDecoration: "none" }}>
-            <div className="relative shrink-0" style={{ width: 64, height: 64 }}>
+          <a href="/" aria-label="NLAMS Home" className="flex items-center gap-2.5 sm:gap-3 no-underline" style={{ textDecoration: "none" }}>
+            <div className="relative shrink-0 w-11 h-11 sm:w-13 sm:h-13 lg:w-16 lg:h-16">
               <Image
                 src="/images/government-of-india.png"
                 alt="Government of India Emblem"
                 fill
                 className="object-contain"
-                sizes="64px"
+                sizes="(max-width: 640px) 44px, (max-width: 1024px) 52px, 64px"
                 priority
               />
             </div>
@@ -42,14 +42,12 @@ export default function MainNavigation() {
             {/* Brand text */}
             <div className="flex flex-col justify-center leading-tight">
               <span
-                className="font-extrabold text-[#0B3A68] leading-none tracking-tight"
-                style={{ fontSize: "36px" }}
+                className="font-extrabold text-[#0B3A68] leading-none tracking-tight text-[26px] sm:text-[32px] lg:text-[36px]"
               >
                 NLAMS
               </span>
               <span
-                className="text-[#0B3A68] font-medium leading-snug"
-                style={{ fontSize: "11px", maxWidth: "165px" }}
+                className="text-[#0B3A68] font-medium leading-snug text-[9.5px] sm:text-[10.5px] lg:text-[11px] max-w-[140px] sm:max-w-[165px]"
               >
                 National Land Acquisition
                 <br />
@@ -137,7 +135,8 @@ export default function MainNavigation() {
               <a
                 key={item.label}
                 href={item.href}
-                className="flex items-center justify-between py-3 text-[15px] font-semibold text-[#102F50] border-b border-[#D8E3EE] last:border-0 hover:text-[#0B3A68] transition-colors"
+                className="flex items-center justify-between py-3 text-[15px] font-semibold text-[#102F50] border-b border-[#D8E3EE] last:border-0 hover:text-[#0B3A68] transition-colors no-underline"
+                style={{ textDecoration: "none" }}
                 onClick={() => setMobileOpen(false)}
               >
                 {item.label}

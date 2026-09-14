@@ -1,7 +1,11 @@
 import NLAMSHeader from "@/components/landing/NLAMSHeader";
 import NLAMSHero from "@/components/landing/NLAMSHero";
 import StatisticsStrip from "@/components/landing/StatisticsStrip";
-import ScrollIndicator from "@/components/landing/ScrollIndicator";
+import ChallengesSection from "@/components/landing/ChallengesSection";
+import HowItWorksSection from "@/components/landing/HowItWorksSection";
+import FAQSection from "@/components/landing/FAQSection";
+import CTASection from "@/components/landing/CTASection";
+import FooterSection from "@/components/landing/FooterSection";
 
 export default function Home() {
   return (
@@ -16,9 +20,23 @@ export default function Home() {
         {/* Statistics strip */}
         <StatisticsStrip />
 
-        {/* Scroll indicator */}
-        <ScrollIndicator />
+        {/* Challenges section */}
+        <ChallengesSection />
+
+        {/* How It Works section */}
+        <HowItWorksSection />
+
+        {/* FAQ section */}
+        <FAQSection />
+
+        {/* CTA section */}
+        <CTASection />
+
       </main>
+
+      {/* Footer section */}
+      <FooterSection />
     </div>
   );
 }
+
