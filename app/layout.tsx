@@ -6,6 +6,7 @@ import {
   Geist_Mono,
 } from "next/font/google";
 import "./globals.css";
+import { AuthProvider } from "@/components/providers/AuthProvider";
 
 // Primary interface font — Noto Sans (variable font)
 const notoSans = Noto_Sans({
@@ -48,7 +49,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${notoSans.variable} ${notoSansDisplay.variable} ${notoSansDevanagari.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <AuthProvider>{children}</AuthProvider>
+      </body>
     </html>
   );
 }
