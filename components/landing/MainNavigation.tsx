@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Search, ChevronDown, ArrowRight, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -27,7 +28,7 @@ export default function MainNavigation() {
         {/* ── LEFT: Emblem + Brand ─────────────────────── */}
         <div className="flex items-center gap-0 shrink-0">
           {/* Government of India Emblem */}
-          <a href="/" aria-label="NLAMS Home" className="flex items-center gap-2.5 sm:gap-3 no-underline" style={{ textDecoration: "none" }}>
+          <Link href="/" aria-label="NLAMS Home" className="flex items-center gap-2.5 sm:gap-3 no-underline" style={{ textDecoration: "none" }}>
             <div className="relative shrink-0 w-11 h-11 sm:w-13 sm:h-13 lg:w-16 lg:h-16">
               <Image
                 src="/images/government-of-india.png"
@@ -54,7 +55,7 @@ export default function MainNavigation() {
                 &amp; Management System
               </span>
             </div>
-          </a>
+          </Link>
 
           {/* Vertical divider after brand */}
           <div
@@ -96,18 +97,20 @@ export default function MainNavigation() {
             <Search className="w-5 h-5" />
           </button>
 
-          <Button
-            className={cn(
-              "bg-[#0B3A68] text-white hover:bg-[#082D4A] border-0",
-              "font-semibold text-[15px] rounded-lg gap-2",
-              "h-auto py-[14px] px-6"
-            )}
-            style={{ minWidth: "185px" }}
-            aria-label="Login to Portal"
-          >
-            Login to Portal
-            <ArrowRight className="w-4 h-4" aria-hidden="true" />
-          </Button>
+          <Link href="/login">
+            <Button
+              className={cn(
+                "bg-[#0B3A68] text-white hover:bg-[#082D4A] border-0 cursor-pointer",
+                "font-semibold text-[15px] rounded-lg gap-2",
+                "h-auto py-[14px] px-6"
+              )}
+              style={{ minWidth: "185px" }}
+              aria-label="Login to Portal"
+            >
+              Login to Portal
+              <ArrowRight className="w-4 h-4" aria-hidden="true" />
+            </Button>
+          </Link>
         </div>
 
         {/* ── Mobile hamburger ────────────────────────── */}
@@ -146,13 +149,15 @@ export default function MainNavigation() {
               </a>
             ))}
             <div className="pt-4 flex flex-col gap-3">
-              <Button
-                className="w-full bg-[#0B3A68] text-white hover:bg-[#082D4A] border-0 font-semibold text-[15px] rounded-lg gap-2 h-12"
-                aria-label="Login to Portal"
-              >
-                Login to Portal
-                <ArrowRight className="w-4 h-4" aria-hidden="true" />
-              </Button>
+              <Link href="/login" onClick={() => setMobileOpen(false)}>
+                <Button
+                  className="w-full bg-[#0B3A68] text-white hover:bg-[#082D4A] border-0 font-semibold text-[15px] rounded-lg gap-2 h-12 cursor-pointer"
+                  aria-label="Login to Portal"
+                >
+                  Login to Portal
+                  <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
