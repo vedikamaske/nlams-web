@@ -38,9 +38,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "NLAMS — National Land Acquisition & Management System",
+  title: "SANKALP - Smart Acquisition Network for Knowledge, Administration, Land & Processing",
   description:
-    "National Land Acquisition & Management System — a Government of India platform for transparent and efficient land acquisition and management.",
+    "Smart Acquisition Network for Knowledge, Administration, Land & Processing — a Government of India platform for transparent and efficient land acquisition and management.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

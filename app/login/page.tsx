@@ -336,7 +336,7 @@ export default function LoginPage() {
         <div className="lg:col-span-6 relative w-full h-full min-h-[240px] sm:min-h-[300px] lg:min-h-full border-b lg:border-b-0 lg:border-r border-[#D2E4F2] overflow-hidden bg-[#E5F2FA]">
           <Image
             src="/images/login-illustration.png"
-            alt="NLAMS Login Illustration"
+            alt="SANKALP Login Illustration"
             fill
             className="object-cover object-center"
             priority
@@ -351,7 +351,7 @@ export default function LoginPage() {
             {/* Header Titles */}
             <div className="text-center mb-5 sm:mb-6">
               <h1 className="text-2xl sm:text-3xl font-extrabold text-[#102F50] tracking-tight">
-                Welcome to NLAMS
+                Welcome to SANKALP
               </h1>
               <p className="text-[#5D7085] text-xs sm:text-sm font-medium mt-1">
                 Sign in to access the official portal
@@ -584,7 +584,7 @@ export default function LoginPage() {
                   <div className="w-full border-t border-[#E2E8F0]" />
                 </div>
                 <div className="relative bg-white px-3 text-[10.5px] sm:text-xs font-semibold text-[#8FA4B8]">
-                  New to NLAMS?
+                  New to SANKALP?
                 </div>
               </div>
 

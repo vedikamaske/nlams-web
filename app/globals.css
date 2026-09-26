@@ -1,5 +1,5 @@
 /* ============================================================
-   NLAMS — National Land Acquisition & Management System
+   SANKALP — National Land Acquisition & Management System
    Global Stylesheet
 
    Build base: shadcn/Nova (base-nova) + Tailwind CSS v4
@@ -16,9 +16,9 @@
 
 /* ── 3. TAILWIND THEME MAPPING ────────────────────────────── */
 /*
-   Maps the NLAMS CSS design tokens into Tailwind's color/font
+   Maps the SANKALP CSS design tokens into Tailwind's color/font
    system so utility classes (bg-primary, text-foreground, etc.)
-   reflect the NLAMS palette automatically.
+   reflect the SANKALP palette automatically.
 
    The --font-sans variable is wired to the Noto Sans CSS variable
    injected by next/font/google in layout.tsx.
@@ -61,7 +61,7 @@
   --color-sidebar-border:                 var(--sidebar-border);
   --color-sidebar-ring:                   var(--sidebar-ring);
 
-  /* Chart tokens (intentionally not NLAMS brand palette;
+  /* Chart tokens (intentionally not SANKALP brand palette;
      chart colors are managed separately to preserve accessibility
      in data visualization contexts) */
   --color-chart-1: var(--chart-1);
@@ -82,11 +82,11 @@
 
 /* ── 4. LIGHT MODE DESIGN TOKENS (:root) ──────────────────── */
 /*
-   NLAMS Semantic Color System
+   SANKALP Semantic Color System
    All values are expressed in oklch() for perceptual uniformity
    and to stay consistent with the shadcn/Nova baseline.
 
-   oklch approximations derived from NLAMS hex values:
+   oklch approximations derived from SANKALP hex values:
      #17365D → oklch(0.285 0.095 250)   Government Navy / Primary
      #102A46 → oklch(0.220 0.083 250)   Navy Dark
      #EAF1F8 → oklch(0.953 0.022 241)   Navy Soft / Light
@@ -98,7 +98,7 @@
      #E2E8F0 → oklch(0.918 0.012 241)   Secondary Background
      #F1F5F9 → oklch(0.965 0.008 241)   Muted Background
      #CBD5E1 → oklch(0.841 0.020 241)   Border
-     #B45309 → oklch(0.548 0.134  55)   Saffron (NLAMS accent)
+     #B45309 → oklch(0.548 0.134  55)   Saffron (SANKALP accent)
      #0F766E → oklch(0.502 0.105 185)   GIS / Teal
      #166534 → oklch(0.420 0.115 152)   Success / Green
      #A16207 → oklch(0.508 0.130  66)   Warning / Amber
@@ -106,7 +106,7 @@
      #075985 → oklch(0.380 0.090 240)   Info / Blue
 */
 :root {
-  /* ─── shadcn semantic tokens — remapped to NLAMS palette ─── */
+  /* ─── shadcn semantic tokens — remapped to SANKALP palette ─── */
 
   /* Page canvas */
   --background:          oklch(0.984 0.004 241);  /* #F8FAFC */
@@ -133,7 +133,7 @@
   --muted-foreground:    oklch(0.446 0.043 243);  /* #475569 */
 
   /* Accent — accessible interactive/hover background state
-     NOTE: saffron is NOT mapped here; see --nlams-saffron below */
+     NOTE: saffron is NOT mapped here; see --SANKALP-saffron below */
   --accent:              oklch(0.953 0.022 241);  /* #EAF1F8 */
   --accent-foreground:   oklch(0.285 0.095 250);  /* #17365D */
 
@@ -173,56 +173,56 @@
   --chart-4: oklch(0.380 0.090 240);  /* blue   */
   --chart-5: oklch(0.470 0.175  28);  /* red    */
 
-  /* ─── NLAMS-specific semantic tokens ─────────────────────
+  /* ─── SANKALP-specific semantic tokens ─────────────────────
      Use these instead of raw hex values in components. */
 
   /* Saffron — national identity accent; use sparingly */
-  --nlams-saffron:             oklch(0.548 0.134  55);   /* #B45309 */
-  --nlams-saffron-foreground:  oklch(0.223 0.033 253);   /* dark text on saffron WCAG AA */
+  --SANKALP-saffron:             oklch(0.548 0.134  55);   /* #B45309 */
+  --SANKALP-saffron-foreground:  oklch(0.223 0.033 253);   /* dark text on saffron WCAG AA */
 
   /* GIS / spatial intelligence accent */
-  --nlams-gis:                 oklch(0.502 0.105 185);   /* #0F766E */
-  --nlams-gis-foreground:      oklch(1 0 0);
+  --SANKALP-gis:                 oklch(0.502 0.105 185);   /* #0F766E */
+  --SANKALP-gis-foreground:      oklch(1 0 0);
 
   /* Success — Approved / Completed / Verified / Active */
-  --nlams-success:             oklch(0.420 0.115 152);   /* #166534 */
-  --nlams-success-bg:          oklch(0.935 0.040 152);   /* soft green bg */
-  --nlams-success-foreground:  oklch(0.223 0.033 253);   /* dark text for contrast */
+  --SANKALP-success:             oklch(0.420 0.115 152);   /* #166534 */
+  --SANKALP-success-bg:          oklch(0.935 0.040 152);   /* soft green bg */
+  --SANKALP-success-foreground:  oklch(0.223 0.033 253);   /* dark text for contrast */
 
   /* Warning — Pending / At Risk / Attention Required */
-  --nlams-warning:             oklch(0.508 0.130  66);   /* #A16207 */
-  --nlams-warning-bg:          oklch(0.960 0.045  66);   /* soft amber bg */
-  --nlams-warning-foreground:  oklch(0.223 0.033 253);   /* dark text for contrast */
+  --SANKALP-warning:             oklch(0.508 0.130  66);   /* #A16207 */
+  --SANKALP-warning-bg:          oklch(0.960 0.045  66);   /* soft amber bg */
+  --SANKALP-warning-foreground:  oklch(0.223 0.033 253);   /* dark text for contrast */
 
   /* Danger — Rejected / Failed / Overdue / Critical */
-  --nlams-danger:              oklch(0.470 0.175  28);   /* #B42318 */
-  --nlams-danger-bg:           oklch(0.958 0.040  28);   /* soft red bg */
-  --nlams-danger-foreground:   oklch(1 0 0);
+  --SANKALP-danger:              oklch(0.470 0.175  28);   /* #B42318 */
+  --SANKALP-danger-bg:           oklch(0.958 0.040  28);   /* soft red bg */
+  --SANKALP-danger-foreground:   oklch(1 0 0);
 
   /* Info — Guidance / Informational */
-  --nlams-info:                oklch(0.380 0.090 240);   /* #075985 */
-  --nlams-info-bg:             oklch(0.948 0.025 240);   /* soft blue bg */
-  --nlams-info-foreground:     oklch(1 0 0);
+  --SANKALP-info:                oklch(0.380 0.090 240);   /* #075985 */
+  --SANKALP-info-bg:             oklch(0.948 0.025 240);   /* soft blue bg */
+  --SANKALP-info-foreground:     oklch(1 0 0);
 
   /* Draft / Muted status */
-  --nlams-draft:               oklch(0.446 0.043 243);   /* slate */
-  --nlams-draft-bg:            oklch(0.965 0.008 241);
-  --nlams-draft-foreground:    oklch(0.223 0.033 253);
+  --SANKALP-draft:               oklch(0.446 0.043 243);   /* slate */
+  --SANKALP-draft-bg:            oklch(0.965 0.008 241);
+  --SANKALP-draft-foreground:    oklch(0.223 0.033 253);
 
   /* Primary dark/light ramp (for hover states, etc.) */
-  --nlams-primary-dark:  oklch(0.220 0.083 250);   /* #102A46 */
-  --nlams-primary-light: oklch(0.953 0.022 241);   /* #EAF1F8 */
+  --SANKALP-primary-dark:  oklch(0.220 0.083 250);   /* #102A46 */
+  --SANKALP-primary-light: oklch(0.953 0.022 241);   /* #EAF1F8 */
 
   /* Secondary / Slate */
-  --nlams-secondary:     oklch(0.446 0.043 243);   /* #475569 */
+  --SANKALP-secondary:     oklch(0.446 0.043 243);   /* #475569 */
 
   /* Subtle text */
-  --nlams-subtle:        oklch(0.510 0.040 245);   /* #64748B */
+  --SANKALP-subtle:        oklch(0.510 0.040 245);   /* #64748B */
 }
 
 /* ── 5. DARK MODE DESIGN TOKENS ───────────────────────────── */
 /*
-   Light mode is the primary NLAMS experience.
+   Light mode is the primary SANKALP experience.
    Dark mode values are updated carefully to preserve:
    - readable text
    - visible borders
@@ -287,37 +287,37 @@
   --chart-4: oklch(0.540 0.100 240);
   --chart-5: oklch(0.600 0.175  28);
 
-  /* NLAMS tokens — adjusted for dark backgrounds */
-  --nlams-saffron:             oklch(0.700 0.130  55);
-  --nlams-saffron-foreground:  oklch(0.145 0.015 253);
+  /* SANKALP tokens — adjusted for dark backgrounds */
+  --SANKALP-saffron:             oklch(0.700 0.130  55);
+  --SANKALP-saffron-foreground:  oklch(0.145 0.015 253);
 
-  --nlams-gis:                 oklch(0.620 0.110 185);
-  --nlams-gis-foreground:      oklch(0.145 0.015 253);
+  --SANKALP-gis:                 oklch(0.620 0.110 185);
+  --SANKALP-gis-foreground:      oklch(0.145 0.015 253);
 
-  --nlams-success:             oklch(0.540 0.120 152);
-  --nlams-success-bg:          oklch(0.210 0.040 152);
-  --nlams-success-foreground:  oklch(0.900 0.020 152);
+  --SANKALP-success:             oklch(0.540 0.120 152);
+  --SANKALP-success-bg:          oklch(0.210 0.040 152);
+  --SANKALP-success-foreground:  oklch(0.900 0.020 152);
 
-  --nlams-warning:             oklch(0.640 0.130  66);
-  --nlams-warning-bg:          oklch(0.220 0.040  66);
-  --nlams-warning-foreground:  oklch(0.900 0.025  66);
+  --SANKALP-warning:             oklch(0.640 0.130  66);
+  --SANKALP-warning-bg:          oklch(0.220 0.040  66);
+  --SANKALP-warning-foreground:  oklch(0.900 0.025  66);
 
-  --nlams-danger:              oklch(0.600 0.180  28);
-  --nlams-danger-bg:           oklch(0.220 0.050  28);
-  --nlams-danger-foreground:   oklch(0.920 0.020  28);
+  --SANKALP-danger:              oklch(0.600 0.180  28);
+  --SANKALP-danger-bg:           oklch(0.220 0.050  28);
+  --SANKALP-danger-foreground:   oklch(0.920 0.020  28);
 
-  --nlams-info:                oklch(0.540 0.100 240);
-  --nlams-info-bg:             oklch(0.200 0.040 240);
-  --nlams-info-foreground:     oklch(0.900 0.020 240);
+  --SANKALP-info:                oklch(0.540 0.100 240);
+  --SANKALP-info-bg:             oklch(0.200 0.040 240);
+  --SANKALP-info-foreground:     oklch(0.900 0.020 240);
 
-  --nlams-draft:               oklch(0.620 0.040 243);
-  --nlams-draft-bg:            oklch(0.250 0.025 253);
-  --nlams-draft-foreground:    oklch(0.900 0.012 241);
+  --SANKALP-draft:               oklch(0.620 0.040 243);
+  --SANKALP-draft-bg:            oklch(0.250 0.025 253);
+  --SANKALP-draft-foreground:    oklch(0.900 0.012 241);
 
-  --nlams-primary-dark:  oklch(0.220 0.083 250);
-  --nlams-primary-light: oklch(0.285 0.060 250);
-  --nlams-secondary:     oklch(0.620 0.040 243);
-  --nlams-subtle:        oklch(0.560 0.035 245);
+  --SANKALP-primary-dark:  oklch(0.220 0.083 250);
+  --SANKALP-primary-light: oklch(0.285 0.060 250);
+  --SANKALP-secondary:     oklch(0.620 0.040 243);
+  --SANKALP-subtle:        oklch(0.560 0.035 245);
 }
 
 /* ── 6. BASE LAYER ────────────────────────────────────────── */
@@ -446,7 +446,7 @@
   }
 
   a:hover {
-    color: var(--nlams-primary-dark);
+    color: var(--SANKALP-primary-dark);
     text-decoration-thickness: 2px;
   }
 

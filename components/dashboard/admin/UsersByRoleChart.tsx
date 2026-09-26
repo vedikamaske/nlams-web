@@ -22,7 +22,7 @@ export default function UsersByRoleChart() {
       <div className="flex items-center justify-between mb-5">
         <div>
           <h3 className="text-[15px] font-bold text-[#0B1E36]">Users by Role</h3>
-          <p className="text-[11px] text-slate-400 font-medium mt-0.5">Distribution across NLAMS roles</p>
+          <p className="text-[11px] text-slate-400 font-medium mt-0.5">Distribution across SANKALP roles</p>
         </div>
         <a
           href="#roles"

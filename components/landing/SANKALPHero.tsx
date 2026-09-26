@@ -26,7 +26,7 @@ const slides = [
 
 const AUTOPLAY_INTERVAL = 8000; // 8 s
 
-export default function NLAMSHero() {
+export default function SANKALPHero() {
   const [active, setActive] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -64,7 +64,7 @@ export default function NLAMSHero() {
   return (
     <section
       className="relative w-full overflow-hidden min-h-[580px] lg:h-[535px] lg:min-h-0"
-      aria-label="NLAMS platform overview — image slider"
+      aria-label="SANKALP platform overview — image slider"
       aria-roledescription="carousel"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}

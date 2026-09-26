@@ -28,7 +28,7 @@ export default function MainNavigation() {
         {/* ── LEFT: Emblem + Brand ─────────────────────── */}
         <div className="flex items-center gap-0 shrink-0">
           {/* Government of India Emblem */}
-          <Link href="/" aria-label="NLAMS Home" className="flex items-center gap-2.5 sm:gap-3 no-underline" style={{ textDecoration: "none" }}>
+          <Link href="/" aria-label="SANKALP Home" className="flex items-center gap-2.5 sm:gap-3 no-underline" style={{ textDecoration: "none" }}>
             <div className="relative shrink-0 w-11 h-11 sm:w-13 sm:h-13 lg:w-16 lg:h-16">
               <Image
                 src="/images/government-of-india.png"
@@ -45,7 +45,7 @@ export default function MainNavigation() {
               <span
                 className="font-extrabold text-[#0B3A68] leading-none tracking-tight text-[26px] sm:text-[32px] lg:text-[36px]"
               >
-                NLAMS
+                SANKALP
               </span>
               <span
                 className="text-[#0B3A68] font-medium leading-snug text-[9.5px] sm:text-[10.5px] lg:text-[11px] max-w-[140px] sm:max-w-[165px]"

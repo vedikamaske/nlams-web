@@ -22,7 +22,7 @@ export default function FooterSection() {
                 className="footer-emblem-img"
               />
               <div className="footer-brand-titles">
-                <h3 className="footer-brand-name">NLAMS</h3>
+                <h3 className="footer-brand-name">SANKALP</h3>
                 <p className="footer-brand-fullname">
                   National Land Acquisition &amp; Management System
                 </p>
@@ -105,7 +105,7 @@ export default function FooterSection() {
             </div>
 
             <div className="footer-copyright">
-              <p>© 2026 NLAMS Prototype</p>
+              <p>© 2026 SANKALP Prototype</p>
               <p>All rights reserved.</p>
             </div>
           </div>

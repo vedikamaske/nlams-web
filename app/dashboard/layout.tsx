@@ -65,7 +65,7 @@ export default function DashboardLayout({
     );
   }
 
-  if (pathname?.startsWith("/dashboard/admin")) {
+  if (pathname?.startsWith("/dashboard/admin") || pathname?.startsWith("/dashboard/lrb") || pathname?.startsWith("/dashboard/pia") || pathname?.startsWith("/dashboard/cala")) {
     return <>{children}</>;
   }
 
@@ -80,7 +80,7 @@ export default function DashboardLayout({
             </div>
             <div>
               <h1 className="text-sm font-extrabold tracking-wide uppercase leading-none">
-                Sankalp / NLAMS
+                Sankalp / SANKALP
               </h1>
               <p className="text-[10px] text-slate-300 font-medium">
                 National Land Acquisition System
