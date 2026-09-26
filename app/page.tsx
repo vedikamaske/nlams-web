@@ -1,5 +1,5 @@
-import NLAMSHeader from "@/components/landing/NLAMSHeader";
-import NLAMSHero from "@/components/landing/NLAMSHero";
+import SANKALPHeader from "@/components/landing/SANKALPHeader";
+import SANKALPHero from "@/components/landing/SANKALPHero";
 import StatisticsStrip from "@/components/landing/StatisticsStrip";
 import ChallengesSection from "@/components/landing/ChallengesSection";
 import HowItWorksSection from "@/components/landing/HowItWorksSection";
@@ -11,11 +11,11 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-[#F4F8FC]">
       {/* Government utility bar + main navigation */}
-      <NLAMSHeader />
+      <SANKALPHeader />
 
       <main id="main-content" className="flex flex-col flex-1">
         {/* Hero section */}
-        <NLAMSHero />
+        <SANKALPHero />
 
         {/* Statistics strip */}
         <StatisticsStrip />

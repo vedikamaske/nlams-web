@@ -15,28 +15,28 @@ import { ChevronUp, ChevronDown } from "lucide-react";
 /* ── FAQ data ─────────────────────────────────────────────────────────────── */
 const faqs = [
   {
-    q: "What is NLAMS?",
-    a: "NLAMS (National Land Acquisition & Management System) is a unified national platform that digitises and connects the complete land acquisition lifecycle — from project initiation and land identification to scrutiny, approvals, notification, compensation, rehabilitation & resettlement, possession and closure.",
+    q: "What is SANKALP?",
+    a: "SANKALP (National Land Acquisition & Management System) is a unified national platform that digitises and connects the complete land acquisition lifecycle — from project initiation and land identification to scrutiny, approvals, notification, compensation, rehabilitation & resettlement, possession and closure.",
   },
   {
-    q: "How is NLAMS different from existing systems?",
-    a: "NLAMS does not replace existing state land-record or departmental systems. Instead, it connects them through a unified workflow and intelligent routing engine, providing a common view of projects, parcels, stakeholders and acquisition progress across jurisdictions.",
+    q: "How is SANKALP different from existing systems?",
+    a: "SANKALP does not replace existing state land-record or departmental systems. Instead, it connects them through a unified workflow and intelligent routing engine, providing a common view of projects, parcels, stakeholders and acquisition progress across jurisdictions.",
   },
   {
-    q: "Who can use NLAMS?",
-    a: "NLAMS is designed for government authorities and stakeholders involved in land acquisition, including LRBs, PIAs, District Collectors, State Government departments, LAO/CALA officers, R&R authorities and other authorised stakeholders. Access is controlled through role-based permissions.",
+    q: "Who can use SANKALP?",
+    a: "SANKALP is designed for government authorities and stakeholders involved in land acquisition, including LRBs, PIAs, District Collectors, State Government departments, LAO/CALA officers, R&R authorities and other authorised stakeholders. Access is controlled through role-based permissions.",
   },
   {
     q: "Which projects and acquisition mechanisms are covered?",
-    a: "NLAMS can support land acquisition for national and state infrastructure projects such as highways, railways and other major public infrastructure. Its configurable workflows can accommodate different acquisition routes, authorities, state policies and applicable statutory processes.",
+    a: "SANKALP can support land acquisition for national and state infrastructure projects such as highways, railways and other major public infrastructure. Its configurable workflows can accommodate different acquisition routes, authorities, state policies and applicable statutory processes.",
   },
   {
-    q: "Does NLAMS replace state land-record systems?",
-    a: "No. NLAMS works as an integration and coordination layer over existing systems. It can integrate with state land records, BhuNaksha, DILRMP, LACRIS, cadastral maps and other government platforms through secure APIs, while maintaining links to the authoritative source systems.",
+    q: "Does SANKALP replace state land-record systems?",
+    a: "No. SANKALP works as an integration and coordination layer over existing systems. It can integrate with state land records, BhuNaksha, DILRMP, LACRIS, cadastral maps and other government platforms through secure APIs, while maintaining links to the authoritative source systems.",
   },
   {
     q: "Is the platform secure and compliant with government standards?",
-    a: "NLAMS is designed with government-grade security and governance in mind, including role-based access control, authentication, audit trails, secure system integration and controlled data access. The platform architecture can be configured to align with applicable government security, privacy and compliance requirements.",
+    a: "SANKALP is designed with government-grade security and governance in mind, including role-based access control, authentication, audit trails, secure system integration and controlled data access. The platform architecture can be configured to align with applicable government security, privacy and compliance requirements.",
   },
 ];
 

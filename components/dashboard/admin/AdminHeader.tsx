@@ -47,7 +47,7 @@ export default function AdminHeader() {
       {/* Right Controls */}
       <div className="flex items-center gap-3">
         {/* Role Badge */}
-        <div className="hidden md:flex items-center gap-1.5 bg-[#EEF5FF] text-[#0a2e61] text-[11px] font-semibold px-3 py-1.5 rounded-full">
+        <div className="hidden md:flex items-center gap-1.5 bg-[#EEF5FF] text-[#0a2e61] text-[11px] font-semibold px-3 py-1.5 rounded-full ">
           <span>System Administrator</span>
         </div>
 

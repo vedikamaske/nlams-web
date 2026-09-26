@@ -28,7 +28,7 @@ export default function CTASection() {
     <section
       ref={sectionRef}
       id="cta"
-      aria-label="Join NLAMS Ecosystem"
+      aria-label="Join SANKALP Ecosystem"
       className="cta-section"
     >
       <div className="cta-container">
@@ -45,7 +45,7 @@ export default function CTASection() {
           <div className="cta-bg-wrap">
             <Image
               src="/images/CTA-bg.png"
-              alt="NLAMS National Land Acquisition Highway Landscape"
+              alt="SANKALP National Land Acquisition Highway Landscape"
               fill
               sizes="(max-width: 1500px) 100vw, 1500px"
               className="cta-bg-img"
@@ -69,7 +69,7 @@ export default function CTASection() {
               </h2>
 
               <p className="cta-subtitle">
-                Explore NLAMS and experience a transparent, efficient and
+                Explore SANKALP and experience a transparent, efficient and
                 citizen-centric approach to land acquisition and management.
               </p>
 

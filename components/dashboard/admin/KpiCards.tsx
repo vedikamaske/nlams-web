@@ -67,12 +67,7 @@ export default function KpiCards() {
           <div
             key={stat.id}
             className="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all overflow-hidden group"
-          >
-            {/* Top accent bar */}
-            <div
-              className="h-1 w-full"
-              style={{ backgroundColor: stat.accentColor }}
-            />
+          >            
 
             <div className="p-5">
               {/* Icon + Title row */}
